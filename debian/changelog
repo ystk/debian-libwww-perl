@@ -1,3 +1,93 @@
+libwww-perl (6.04-1) unstable; urgency=low
+
+  * Team upload
+  * New upstream release
+
+ -- Alessandro Ghedini <al3xbio@gmail.com>  Sun, 19 Feb 2012 19:57:21 +0100
+
+libwww-perl (6.03-1) unstable; urgency=low
+
+  [ Ansgar Burchardt ]
+  * debian/control: Convert Vcs-* fields to Git.
+
+  [ Salvatore Bonaccorso ]
+  * debian/copyright: Replace DEP5 Format-Specification URL from
+    svn.debian.org to anonscm.debian.org URL.
+
+  [ Nicholas Bamber ]
+  * New upstream release
+  * Added override for DEP-5 format lintian warning
+  * Raised debhelper version and compat level to 8
+  * Downgraded libauthen-ntlm-perl to Suggests in sympathy with Ubuntu
+
+ -- Nicholas Bamber <nicholas@periapt.co.uk>  Sat, 22 Oct 2011 22:22:19 +0100
+
+libwww-perl (6.02-1) unstable; urgency=low
+
+  [ Nicholas Bamber ]
+  * New upstream release
+    - Split off LWP::Protocol::https
+    - Removes need for patch
+    - Removes deprecated modules such as http10
+  * Added Recommends clause for libauthen-ntlm-perl
+  * Updated version in Breaks clause for tidy-proxy
+  * Updated version in Breaks clause for gsutil
+  * Raised standards version to 3.9.2
+  * Adding debian/clean
+
+  [ gregor herrmann ]
+  * debian/rules: unset PERL_LWP_SSL_VERIFY_HOSTNAME to make tests pass.
+  * Removed libio-socket-ssl-perl, libcrypt-ssleay-perl from Suggests clause
+
+ -- Nicholas Bamber <nicholas@periapt.co.uk>  Mon, 23 May 2011 01:05:49 +0100
+
+libwww-perl (6.01-3) unstable; urgency=low
+
+  * Add versioned Breaks clauses for packages which use HTTP::Daemon
+    or HTML::Form (Closes: #621135)
+
+ -- Nicholas Bamber <nicholas@periapt.co.uk>  Thu, 07 Apr 2011 13:45:50 +0100
+
+libwww-perl (6.01-2) unstable; urgency=low
+
+  * Fix "typo in depends makes package uninstallable":
+    s/ca-certficates/ca-certificates/. 
+    Thanks to Michael Biebl for the bug report (closes: #621019).
+
+ -- gregor herrmann <gregoa@debian.org>  Tue, 05 Apr 2011 23:35:49 +0200
+
+libwww-perl (6.01-1) unstable; urgency=low
+
+  * New upstream release 
+    - Modules not in the LWP namespace have been made into separate modules
+    - In particular IPv6 issues now handled by libnet-http-perl,
+      see #306914, (Closes: #614948) 
+    - Packages using HTTP::Daemon should declare the appropriate
+      dependency on libhttp-daemon-perl | libwww-perl (<< 6).
+    - Packages using HTML::Form should declare the appropriate
+      dependency on libhtml-form-perl | libwww-perl (<< 6).
+    - Other depending packages can safely continue to depend on libwww-perl,
+      but in some cases may be able to tighten up their dependencies.
+    - LWP::Protocol::https will be split off in the next release
+      so now liblwp-protocol-https-perl is Provided.
+  * Updated dependencies
+  * New upstream release
+  * Removed unnecessary versioned dependency on libio-compress-perl
+  * Patched LWP::Protocol::https to use ca-certificates rather than 
+    Mozilla::CA (Closes: #619059)
+
+ -- Nicholas Bamber <nicholas@periapt.co.uk>  Sat, 02 Apr 2011 15:13:32 +0100
+
+libwww-perl (5.837-1) unstable; urgency=low
+
+  * New upstream release
+  * Added myself to Uploaders and upped standards version
+  * Fixed erroneous copyright date of 2017 in changelog
+  * Refreshed copyright
+  * Rewrote the short description
+
+ -- Nicholas Bamber <nicholas@periapt.co.uk>  Mon, 04 Oct 2010 16:47:25 +0100
+
 libwww-perl (5.836-1) unstable; urgency=low
 
   * New upstream release
@@ -578,7 +668,7 @@ libwww-perl (5.17-1) unstable; urgency=low
 
   * New upstream release.
 
- -- Michael Alan Dorman <mdorman@debian.org>  Fri, 15 Dec 2017 11:59:58 -0500
+ -- Michael Alan Dorman <mdorman@debian.org>  Fri, 15 Dec 1997 11:59:58 -0500
 
 libwww-perl (5.09-1) unstable; urgency=low
 
