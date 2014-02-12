@@ -1,4 +1,131 @@
 _______________________________________________________________________________
+2012-02-18  Release 6.04
+
+Gisle Aas (4):
+      Typo fix; envirionment [RT#72386]
+      Implement $ua->is_online test
+      Add separate option to enable the live jigsaw tests
+      Merge pull request #10 from trcjr/master
+
+Theodore Robert Campbell Jr (3):
+      now with put and delete helpers
+      updated POD
+      unit tests for ua->put and ua->delete
+
+Peter Rabbitson (1):
+      These modules work with 5.8.1
+
+
+
+
+_______________________________________________________________________________
+2011-10-15  Release 6.03
+
+Ville Skyttä (7):
+      Link updates.
+      Attribute documentation wording improvements.
+      Don't parse robots.txt response content unless it's textual.
+      Decode robots.txt response content before attempting to parse it.
+      RobotUA robots.txt response parsing cleanups.
+      Don't parse HEAD of robots.txt responses.
+      Request handler doc grammar fixes.
+
+Gisle Aas (6):
+      Pass on HTTP/1.0 if set as request protocol
+      Remove outdated docs (not touched since 1996 :-)
+      Merge pull request #22 from madsen/RT67947-verify_hostname
+      PERL_LWP_ENV_PROXY tweaks
+      lwp-request didn't respect -H Content-type [RT#70488]
+      lwp-request -H didn't allow repeated headers
+
+Christopher J. Madsen (2):
+      verify_hostname defaults to 0 if ssl_opts provided [RT#67947]
+      Test verify_hostname setting
+
+Bryan Cardillo (1):
+      Fix expect header support to work with content refs.
+
+Moritz Onken (1):
+      add PERL_LWP_ENV_PROXY env variable to enable env_proxy globally
+
+
+
+_______________________________________________________________________________
+2011-03-27  Release 6.02
+
+This is the release where we try to help the CPAN-toolchain be able to install
+the modules required for https-support in LWP.  We have done this by unbundling
+the LWP::Protocol::https module from the libwww-perl distribution.  In order to
+have https support you now need to install (or depend on) 'LWP::Protocol::https'
+and then this will make sure that all the prerequsite modules comes along.
+See [RT#66838].
+
+This release also removes the old http10 modules that has really been
+deprecated since v5.60.  These should have been removed at the v6.00 jump, but
+I forgot.
+
+
+Christopher J. Madsen (1):
+      Ignores env variables when ssl_opts provided [RT#66663]
+
+Gisle Aas (4):
+      Fix typo; Authen::NTLM [RT#66884]
+
+Yury Zavarin (1):
+      Support LWP::ConnCache->new(total_capacity => undef)
+
+
+
+_______________________________________________________________________________
+2011-03-09  Release 6.01
+
+Add missing HTTP::Daemon dependency for the tests.
+
+
+
+_______________________________________________________________________________
+2011-03-08  Release 6.00
+
+Unbundled all modules not in the LWP:: namespace from the libwww-perl
+distribution.  The new broken out CPAN distribtions are File-Listing,
+HTML-Form, HTTP-Cookies, HTTP-Daemon, HTTP-Date, HTTP-Message, HTTP-Negotiate,
+Net-HTTP, and WWW-RobotRules.  libwww-perl-6 require these to be installed.
+
+This release also drops the unmaintained lwp-rget script from the distribution.
+
+Perl v5.8.8 or better is now required.  For older versions of perl please stay
+with libwww-perl-5.837.
+
+For https://... default to verified connections with require IO::Socket::SSL
+and Mozilla::CA modules to be installed.  Old behaviour can be requested by
+setting the PERL_LWP_SSL_VERIFY_HOSTNAME environment variable to 0.  The
+LWP::UserAgent got new ssl_opts method to control this as well.
+
+Support internationalized URLs from command line scripts and in the proxy
+environment variables.
+
+The lwp-dump script got new --request option.
+
+The lwp-request script got new -E option, contributed by Tony Finch.
+
+Protocol handlers and callbacks can raise HTTP::Response objects as exceptions.
+This will abort the current request and make LWP return the raised response.
+
+
+
+_______________________________________________________________________________
+2010-09-20  Release 5.837
+
+David E. Wheeler (1):
+      Fix for Encode 2.40
+
+Gisle Aas (2):
+      Fix Perl syntax error in synopsis
+      Allow ISO 8601 date strings when parsing Apache file listings
+
+
+
+_______________________________________________________________________________
 2010-05-13  Release 5.836
 
 Gisle Aas (1):
