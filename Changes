@@ -1,4 +1,110 @@
 _______________________________________________________________________________
+2014-07-24  Release 6.08
+
+Mike Schilli (1):
+      Requiring Net::HTTP 6.07 to fix IPv6 support 
+        (RT#75618 and https://github.com/libwww-perl/net-http/pull/10)
+
+Jason A Fesler (2):
+      When the hostname is an IPv6 literal, encapsulate it with [brackets] 
+        before calling Net::HTTP  [rt.cpan.org #29468]
+      Extra steps to make sure that the host address that has a ":" contains 
+        only characters appropriate for an IPv6 address.
+
+John Wittkoski (1):
+      Fix doc typo for cookie_jar
+
+_______________________________________________________________________________
+2014-07-01  Release 6.07
+
+Mike Schilli (5):
+      Removed Data::Dump references in test suite and dependency in Makefile.PL
+      Added MANIFEST.SKIP to enable "make manifest".
+      release script now checks for MacOS to avoid incompatible tarballs
+      Bumped version number to 6.07
+      Fixed gnu-incompatible tarball problem ([rt.cpan.org #94844])
+
+_______________________________________________________________________________
+2014-04-16  Release 6.06
+
+Ville Skyttä (3):
+      Merge pull request #44 from dsteinbrunner/master
+      Spelling fixes.
+      Merge pull request #55 from oalders/master
+
+Karen Etheridge (2):
+      Merge pull request #38 from mbeijen/typo-sting
+      Merge pull request #43 from dsteinbrunner/master
+
+David Steinbrunner (2):
+      Spelling corrections
+
+Olaf Alders (1):
+      Typo fixes.
+
+Steffen Ullrich (1):
+      correct behavior for https_proxy,
+      e.g. don't send plain https:// requests to proxy, but instead establish
+      CONNECT tunnel and then send requests inside tunnel.
+      This change does together with a change in LWP::Protocol::https.
+      The change supports LWP::Protocol::https with the default
+      IO::Socket::SSL backend, but also with Net::SSL. Also:
+      - proxy authorization is supported (http://user:pass@host:port as proxy
+        URL, Net::SSL still needs special HTTPS_PROXY_* environemt variables,
+        as before)
+      - CONNECT request does not need to be the first request inside the
+        tunnel (not with Net::SSL)
+      - conn_cache is read and written inside request(), instead of writing in
+        request() and reading in _new_socket(). If a https tunnel is
+        established the cache_key no longer depends only on proxy host,port
+        but also on the tunnel endpoint
+      - CONNECT is a proxy request and must always use Proxy-Authorization,
+        not Authorization header
+
+turugina (1):
+      fix: auth-header of Digest auth did not conform to 
+      RFC 2617 when WWW-Authenticate has 'qop' parameter.
+
+Gisle Aas (1):
+      SSL libs might trigger ENOTTY on read
+
+Michiel Beijen (1):
+      Small typo.
+
+_______________________________________________________________________________
+2013-03-11  Release 6.05
+
+Karen Etheridge (3):
+      Derive message from status code if it was not provided
+      Merge pull request #33 from tomhukins/fix-readme
+      fix typo in comment
+
+Ville Skyttä (3):
+      Spelling fixes.
+      Spelling fix.
+      Merge pull request #34 from berekuk/fix-github-path
+
+Gisle Aas (3):
+      Update repo URL
+      With Net::HTTP 6.04 we don't need our own can_read() and sysread override
+      $ENV{HTTP_PROXY} might override our test setup [RT#81381]
+
+Vyacheslav Matyukhin (1):
+      fix github url in perldoc
+
+Slaven Rezic (1):
+      * Pod is utf-8
+
+Peter Rabbitson (1):
+      Match required perl in Makefile.PL
+
+Tom Hukins (1):
+      Fix Github URLs
+
+
+
+
+_______________________________________________________________________________
 2012-02-18  Release 6.04
 
 Gisle Aas (4):
@@ -298,12 +404,12 @@ phrstbrn (1):
 _______________________________________________________________________________
 2009-06-25  Release 5.828
 
-A quick new release to restore compatiblity with perl-5.6.
+A quick new release to restore compatibility with perl-5.6.
 
 
 Gisle Aas (4):
       Less noisy behaviour when we can't download the documents
-      Restore perl-5.6 compatiblity [RT#47054]
+      Restore perl-5.6 compatibility [RT#47054]
       Don't decode US-ASCII and ISO-8859-1 content
       Some versions of Encode don't support UTF-16-BE [RT#47152]
 
@@ -1760,12 +1866,12 @@ _______________________________________________________________________________
     it that it takes effect if associated with the $ua.
 
     The handling of $ua->max_size changed to make 0 mean 0
-    (not unlimited).  An value of undef means no limit.
+    (not unlimited).  A value of undef means no limit.
     The X-Content-Base header is gone.  I hope nobody relies on
     it.  It might come back if people start to scream.  There
     is a new Client-Aborted header instead.
 
-    The Range header generated for $ua->max_size had a off-by-one
+    The Range header generated for $ua->max_size had an off-by-one
     error.  A range of "0-1" means 2 bytes.
 
     The LWP::UserAgent constructor now takes configuration arguments.
@@ -3324,7 +3430,7 @@ Mon Feb  5 1996   Gisle Aas <aas@sn.no>
  o  The construct "defined ref($arg)" did not work on perl5.002
     because ref now always return something defined.
 
- o  LWP::UserAgent sends by default an 'User-Agent' header.
+ o  LWP::UserAgent sends by default a 'User-Agent' header.
 
  o  LWP::Simple sends 'User-Agent' header to servers.
 
