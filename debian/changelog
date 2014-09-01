@@ -1,3 +1,67 @@
+libwww-perl (6.08-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump versioned (build) dependency on libnet-http-perl to 6.07 for IPv6
+    support.
+  * Refresh drop-non-blocking-socket.patch (offset).
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 26 Jul 2014 15:04:56 +0200
+
+libwww-perl (6.07-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update years of packaging copyright.
+
+ -- gregor herrmann <gregoa@debian.org>  Fri, 04 Jul 2014 22:40:52 +0200
+
+libwww-perl (6.06-1) unstable; urgency=medium
+
+  * Imported Upstream version 6.06
+  * removed fix-https-proxy patch (applied upstream)
+
+ -- Dominique Dumont <dod@debian.org>  Thu, 24 Apr 2014 18:04:38 +0200
+
+libwww-perl (6.05-3) unstable; urgency=medium
+
+  [ gregor herrmann ]
+  * debian/control: remove Nicholas Bamber from Uploaders on request of
+    the MIA team.
+  * Strip trailing slash from metacpan URLs.
+
+  [ Damyan Ivanov ]
+  * add patch from Ivan Shmakov fixing validation of IPv6 proxy addresses
+    (Closes: #714961)
+  * add patch from Michael Shields disabling non-blocking socket I/O.
+    This requires handling of EINPROGRESS, which is not present.
+    (Closes: #216821)
+
+ -- Damyan Ivanov <dmn@debian.org>  Sat, 12 Apr 2014 00:10:27 +0300
+
+libwww-perl (6.05-2) unstable; urgency=low
+
+  * control: added dod to uploaders. Removed jawnsy and ryan
+  * added fix-https-patch from upstream that help fix #129528, #622212
+    #687834
+
+ -- Dominique Dumont <dod@debian.org>  Fri, 29 Nov 2013 18:37:09 +0100
+
+libwww-perl (6.05-1) unstable; urgency=low
+
+  [ Nathan Handler ]
+  * Email change: Nathan Handler -> nhandler@debian.org
+
+  [ Salvatore Bonaccorso ]
+  * Change Vcs-Git to canonical URI (git://anonscm.debian.org)
+  * Change search.cpan.org based URIs to metacpan.org based URIs
+
+  [ gregor herrmann ]
+  * New upstream release.
+  * debian/copyright: switch formatting to Copyright-Format 1.0.
+  * Make (build) dependency on libnet-http-perl versioned.
+  * Set Standards-Version to 3.9.4 (no further changes).
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 22 Jun 2013 20:15:29 +0200
+
 libwww-perl (6.04-1) unstable; urgency=low
 
   * Team upload

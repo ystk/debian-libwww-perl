@@ -1,0 +1,18 @@
+Description: allow ipv6 proxy specification
+Author: Ivan Shmakov <oneingray@gmail.com>
+Reviewed-By: Damyan Ivanov <dmn@debian.org>
+Bug-Debian: https://bugs.debian.org/714961
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=94654
+
+--- a/lib/LWP/UserAgent.pm
++++ b/lib/LWP/UserAgent.pm
+@@ -986,7 +986,8 @@ sub proxy
+         my $url = shift;
+         if (defined($url) && length($url)) {
+             Carp::croak("Proxy must be specified as absolute URI; '$url' is not") unless $url =~ /^$URI::scheme_re:/;
+-            Carp::croak("Bad http proxy specification '$url'") if $url =~ /^https?:/ && $url !~ m,^https?://\w,;
++            Carp::croak("Bad http proxy specification '$url'")
++                if $url =~ /^https?:/ && $url !~ m,^https?://(\w|\[),;
+         }
+         $self->{proxy}{$key} = $url;
+         $self->set_my_handler("request_preprepare", \&_need_proxy)

@@ -1,19 +1,19 @@
-Format-Specification: http://anonscm.debian.org/viewvc/dep/web/deps/dep5.mdwn?view=markup&pathrev=135
-Maintainer: Gisle Aas <gisle@activestate.com>
-Source: http://search.cpan.org/dist/libwww-perl/
-Name: libwww-perl
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: libwww-perl
+Upstream-Contact: Gisle Aas <gisle@activestate.com>
+Source: https://metacpan.org/release/libwww-perl
 
 Files: *
 Copyright:
  1995-2009, Gisle Aas <gisle@activestate.com>
 License: Artistic or GPL-1+
- 
+
 Files: lib/LWP.pm
 Copyright:
  1995-2009, Gisle Aas <gisle@activestate.com>
  1995, Martijn Koster
 License: Artistic or GPL-1+
- 
+
 Files: lib/LWP/Authen/Ntlm.pm
 Copyright: 2002, James Tillman
 License: Artistic or GPL-1+
@@ -31,12 +31,12 @@ Copyright:
  2007, 2009, Damyan Ivanov <dmn@debian.org>
  2008, Krzysztof Krzyżaniak (eloy) <eloy@debian.org>
  2008, Roberto C. Sanchez <roberto@debian.org>
- 2008, gregor herrmann <gregoa@debian.org>
+ 2008-2014, gregor herrmann <gregoa@debian.org>
  2009-2010, Jonathan Yu <jawnsy@cpan.org>
  2009, Antonio Radici <antonio@dyne.org>
  2009, Iulian Udrea <iulian@ubuntu.com>
- 2009, Nathan Handler <nhandler@ubuntu.com>
- 2009, Ryan Niebur <ryanryan52@gmail.com>
+ 2009, Nathan Handler <nhandler@debian.org>
+ 2009, Ryan Niebur <ryan@debian.org>
  2010-2011, Nicholas Bamber <nicholas@periapt.co.uk>
 License: Artistic or GPL-1+
 

@@ -1,0 +1,18 @@
+Description: drop $sock->blocking(0) call, requires handling of EINPROGRESS
+Author: Michael Shields <shields@msrl.com>
+Reviewed-By: Damyan Ivanov <dmn@debian.org>
+Bug-Debian: https://bugs.debian.org/216821
+Forwarded: https://rt.cpan.org/Ticket/Display.html?id=43719
+
+--- a/lib/LWP/Protocol/http.pm
++++ b/lib/LWP/Protocol/http.pm
+@@ -49,9 +49,6 @@ sub _new_socket
+ 	die "$status\n\n$@";
+     }
+ 
+-    # perl 5.005's IO::Socket does not have the blocking method.
+-    eval { $sock->blocking(0); };
+-
+     $sock;
+ }
+ 
